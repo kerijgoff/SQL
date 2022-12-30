@@ -1,0 +1,36 @@
+--Create a clothing store database
+
+CREATE TABLE clothing (id INTEGER PRIMARY KEY, name TEXT, department TEXT, price NUMERIC, amount INTEGER);
+INSERT INTO clothing VALUES (1, "Ugg", "shoes", 100, 10);
+INSERT INTO clothing VALUES (2, "Shirt", "top", 10, 20);
+INSERT INTO clothing VALUES (3, "Pants", "bottom", 10, 40);
+INSERT INTO clothing VALUES (4, "sandals", "shoes", 12, 5);
+INSERT INTO clothing VALUES (5, "tank", "top", 5, 30);
+INSERT INTO clothing VALUES (6, "skirt", "bottom", 20, 15);
+INSERT INTO clothing VALUES (7, "shorts", "bottom", 9, 20);
+INSERT INTO clothing VALUES (8, "heels", "shoes", 50, 50);
+INSERT INTO clothing VALUES (9, "dress", "top", 12, 20);
+INSERT INTO clothing VALUES (10, "underwear", "bottom", 40, 10);
+INSERT INTO clothing VALUES (11, "bra", "top", 20, 50);
+INSERT INTO clothing VALUES (12, "jeans", "bottom", 60, 55);
+INSERT INTO clothing VALUES (13, "pumps", "shoes", 13, 70);
+INSERT INTO clothing VALUES (14, "hoodie", "top", 39, 80);
+INSERT INTO clothing VALUES (15, "jacket", "top", 15, 150);
+
+--display all data from the database
+SELECT * FROM clothing ;
+
+--display the name and department columns from the database
+SELECT name, department FROM clothing;
+
+--display the department column from the database with only unique rows
+SELECT DISTINCT department FROM clothing;
+
+--display the database ordered by price. 
+SELECT * FROM clothing ORDER BY price desc; 
+
+--what are the min and max prices in the database?
+SELECT MIN(price), MAX(price) FROM clothing;
+
+--update amount for id = 2 in the database
+UPDATE clothing SET amount = 10 WHERE id = 2;
