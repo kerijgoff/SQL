@@ -1,0 +1,47 @@
+/* Create table about the people and what they do here */
+CREATE TABLE authors (id INTEGER PRIMARY KEY, fullname TEXT, numbookwritten INTEGER);
+INSERT INTO authors VALUES (1, "Jennifer Saint",3);
+INSERT INTO authors VALUES (2, "Stephanie Garber",6);
+INSERT INTO authors VALUES (3, "Kristin Cashore",10);
+INSERT INTO authors VALUES (4, "Markus Zusak", 2);
+INSERT INTO authors VALUES (5, "Madeline Miller",12);
+
+CREATE TABLE books (id INTEGER PRIMARY KEY, author_id INTEGER, title TEXT);
+INSERT INTO books VALUES (1, 5, "Circe");
+INSERT INTO books VALUES (2, 4, "Book Thief");
+INSERT INTO books VALUES (3, 3, "Bitterblue");
+INSERT INTO books VALUES (4, 2, "Ballad of Never After");
+INSERT INTO books VALUES (5, 1, "Ariadne");
+
+CREATE TABLE location (author_id INTEGER PRIMARY KEY, country TEXT);
+INSERT INTO location VALUES (1, "USA");
+INSERT INTO location VALUES (2, "USA");
+INSERT INTO location VALUES (3, "USA");
+INSERT INTO location VALUES (4, "USA");
+INSERT INTO location VALUES (5, "USA");
+
+SELECT a.fullname, b.title
+FROM authors a
+JOIN books b
+ON a.id= b.author_id;
+
+SELECT a.fullname, b.title
+FROM authors a
+JOIN books b
+ON a.id= b.author_id
+WHERE a.id=3;
+
+SELECT a.fullname, a.numbookwritten, l.country
+FROM authors a
+LEFT OUTER JOIN location l
+ON a.id=l.author_id
+GROUP BY a.fullname
+ORDER BY a.numbookwritten desc;
+
+SELECT a.fullname, b.title, a.numbookwritten, l.country
+FROM authors a 
+JOIN books b
+ON a.id = b.author_id
+JOIN location l
+ON a.id=l.author_id
+ORDER BY a.numbookwritten asc;
