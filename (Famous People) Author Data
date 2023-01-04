@@ -20,17 +20,20 @@ INSERT INTO location VALUES (3, "USA");
 INSERT INTO location VALUES (4, "USA");
 INSERT INTO location VALUES (5, "USA");
 
+--display authors and the titles of their books
 SELECT a.fullname, b.title
 FROM authors a
 JOIN books b
 ON a.id= b.author_id;
 
+--display the author and title of book with the id=3
 SELECT a.fullname, b.title
 FROM authors a
 JOIN books b
 ON a.id= b.author_id
 WHERE a.id=3;
 
+--display the authors, their location, and their number of books written in descending order
 SELECT a.fullname, a.numbookwritten, l.country
 FROM authors a
 LEFT OUTER JOIN location l
@@ -38,6 +41,7 @@ ON a.id=l.author_id
 GROUP BY a.fullname
 ORDER BY a.numbookwritten desc;
 
+--display the authors, the title of their book, their location, and their number of books written in ascending order
 SELECT a.fullname, b.title, a.numbookwritten, l.country
 FROM authors a 
 JOIN books b
