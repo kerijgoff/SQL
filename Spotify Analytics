@@ -43,3 +43,21 @@ FROM BIT_DB.spotifydata
 ORDER BY popularity desc
 LIMIT 10;
 
+-- What song has the longest duration?
+
+SELECT artist_name, track_name, MAX(duration_ms)
+FROM BIT_DB.Spotifydata
+
+-- Determine the top 5 artists by energy.
+
+SELECT artist_name, energy, loudness
+FROM BIT_DB.Spotifydata
+ORDER BY energy desc
+LIMIT 5;
+
+-- Comparing liveness and tempo.
+
+SELECT artist_name, track_name, liveness, tempo
+FROM BIT_DB.Spotifydata
+ORDER BY liveness desc
+LIMIT 10;
