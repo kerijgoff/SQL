@@ -104,5 +104,5 @@ AVG(safetyrating) OVER (PARTITION BY street) as "Average_safety_rating",
     WHEN AVG(safetyrating) OVER (PARTITION BY safetyrating) >=4.0 THEN "Leave As-Is"
     WHEN AVG(safetyrating) OVER (PARTITION BY safetyrating) < 2.5 THEN "Remove"
     ELSE "Improvements Needed"
-    END AS "Recommendattion"
+    END AS "Recommendation"
 FROM CityBikeLanes;
